@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DataAccess": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ConnectionString": "\"Server=.;Database=TestDb;Trusted_Connection=True;\""
+      }
+    }
+  }
+}
