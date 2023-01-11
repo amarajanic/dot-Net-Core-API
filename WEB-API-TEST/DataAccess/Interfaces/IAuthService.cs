@@ -9,7 +9,7 @@ namespace DataAccess.Interfaces
 {
     public interface IAuthService
     {
-        public Task<bool> Register(UserRegister request);
+        public Task<string> Register(UserRegister request);
         public Task<string> Login(UserLogin request);
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    public class UserRegister
+    public class UserRegister : UserLogin
     {
         [Required]
         [StringLength(100)]
@@ -17,15 +17,9 @@ namespace DataAccess.Models
         public string LastName { get; set; }
         [Required]
         [StringLength(100)]
-        public string Username { get; set; }
-        [Required]
-        [StringLength(100)]
-        public string Password { get; set; }
-        [Required]
-        [StringLength(100)]
         public string ConfirmPassword { get; set; }
-        [Required]
-        public int RoleId { get; set; }
+        //[Required]
+        //public int RoleId { get; set; }
 
     }
 }

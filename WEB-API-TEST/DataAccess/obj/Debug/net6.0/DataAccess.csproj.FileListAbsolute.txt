@@ -17,3 +17,17 @@ C:\Users\HOME\source\repos\WEB-API-TEST\DataAccess\bin\Debug\net6.0\DataAccess.d
 C:\Users\HOME\source\repos\WEB-API-TEST\DataAccess\bin\Debug\net6.0\DataAccess.pdb
 C:\Users\HOME\source\repos\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
 C:\Users\HOME\source\repos\WEB-API-TEST\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+C:\Users\HOME\Desktop\dot-Net-Core-API\WEB-API-TEST\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

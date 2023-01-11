@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HOME\\source\\repos\\WEB-API-TEST\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\HOME\\Desktop\\dot-Net-Core-API\\WEB-API-TEST\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HOME\\source\\repos\\WEB-API-TEST\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\HOME\\Desktop\\dot-Net-Core-API\\WEB-API-TEST\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HOME\\source\\repos\\WEB-API-TEST\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\HOME\\Desktop\\dot-Net-Core-API\\WEB-API-TEST\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\HOME\\source\\repos\\WEB-API-TEST\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\HOME\\Desktop\\dot-Net-Core-API\\WEB-API-TEST\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HOME\\source\\repos\\WEB-API-TEST\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\HOME\\Desktop\\dot-Net-Core-API\\WEB-API-TEST\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

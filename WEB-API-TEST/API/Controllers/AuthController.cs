@@ -18,22 +18,18 @@ namespace API.Controllers
 
         }
         [HttpPost("Register")]
-        public async Task<ActionResult<UserDisplay>> Register(UserRegister request)
+        public async Task<ActionResult<string>> Register(UserRegister request)
         {
             try
             {
                 var response = await _service.Register(request);
 
-                if (!response)
-                {
-                    return BadRequest(response);
-                }
+                return response;
 
-                return Ok(response);
             }
-            catch (Exception err)
+            catch (Exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, err.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "There was an error while registrating new user!");
             }
         }
         [HttpPost("Login")]

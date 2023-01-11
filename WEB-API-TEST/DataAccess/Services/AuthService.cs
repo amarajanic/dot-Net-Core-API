@@ -4,11 +4,13 @@ using DataAccess.Helpers;
 using DataAccess.Interfaces;
 using DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace DataAccess.Services
 {
@@ -22,28 +24,32 @@ namespace DataAccess.Services
             _context = context;
             jwtGenerator = new JWTGenerator(context);
         }
-        public async Task<bool> Register(UserRegister request)
+        public async Task<string> Register(UserRegister request)
         {
             if(request.Password == request.ConfirmPassword)
             {
-                passwordHelper.CreatePasswordHash(request.Password, out byte[] passwordhash, out byte[] passwordSalt);
-                var dbUser = new DbUser()
+               if (_context.Users.Where(x=>x.Username == request.Username).Any())
                 {
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
-                    Username = request.Username,
-                    PasswordHash = passwordhash,
-                    PasswordSalt = passwordSalt,
-                    RoleId = request.RoleId,
-                };
+                    return "User with that username already exists!";
+                }
+               passwordHelper.CreatePasswordHash(request.Password, out byte[] passwordhash, out byte[] passwordSalt);
+               var dbUser = new DbUser()
+                 {
+                   FirstName = request.FirstName,
+                   LastName = request.LastName,
+                   Username = request.Username,
+                   PasswordHash = passwordhash,
+                   PasswordSalt = passwordSalt,
+                   RoleId = 6
+                 };
 
                 await _context.AddAsync(dbUser);
                 await _context.SaveChangesAsync();
-                return true;
+                return "User registrated successfully!";
             }
             else
             {
-                return false;
+                return "Passwords don't match!";
             }
         }
 
