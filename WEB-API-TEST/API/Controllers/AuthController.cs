@@ -33,7 +33,7 @@ namespace API.Controllers
             }
         }
         [HttpPost("Login")]
-        public async Task<ActionResult<string>> Login(UserLogin request)
+        public async Task<ActionResult<LoginResponse>> Login(UserLogin request)
         {
             try
             {

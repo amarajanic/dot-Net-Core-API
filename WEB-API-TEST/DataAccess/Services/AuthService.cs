@@ -53,9 +53,8 @@ namespace DataAccess.Services
             }
         }
 
-        public async Task<string> Login(UserLogin request)
+        public async Task<LoginResponse> Login(UserLogin request)
         {
-
             var user = await _context.Users.Where(x => x.Username == request.Username).FirstOrDefaultAsync();
 
             if(user == null)
@@ -72,7 +71,9 @@ namespace DataAccess.Services
             var refreshToken = jwtGenerator.GenerateRefreshToken();
             jwtGenerator.SetRefreshToken(refreshToken, user);
 
-            return token;
+            var loginResponse = new LoginResponse() { AccessToken = token , RefreshToken = refreshToken.Token};
+
+            return loginResponse;
 
         }
     }
