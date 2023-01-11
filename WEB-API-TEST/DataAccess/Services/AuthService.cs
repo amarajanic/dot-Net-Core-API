@@ -40,7 +40,7 @@ namespace DataAccess.Services
                    Username = request.Username,
                    PasswordHash = passwordhash,
                    PasswordSalt = passwordSalt,
-                   RoleId = 6
+                   RoleId = 3
                  };
 
                 await _context.AddAsync(dbUser);
