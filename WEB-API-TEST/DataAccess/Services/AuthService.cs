@@ -76,5 +76,29 @@ namespace DataAccess.Services
             return loginResponse;
 
         }
+
+        public async Task<LoginResponse> Refresh(string refresh)
+        {
+            var userRefreshToken = await _context.Users.Where(x=>x.RefreshToken == refresh).FirstOrDefaultAsync();
+
+            if (userRefreshToken == null || userRefreshToken.RefreshToken != refresh)
+            {
+                throw new Exception("Invalid refresh token!");
+            }
+            if (userRefreshToken.TokenExpires >= DateTime.Now)
+            {
+                throw new Exception("Refresh token expired!");
+            }
+
+            string token = await jwtGenerator.CreateToken(userRefreshToken);
+
+            var refreshToken = jwtGenerator.GenerateRefreshToken();
+            jwtGenerator.SetRefreshToken(refreshToken, userRefreshToken);
+
+            var refreshResponse = new LoginResponse() { AccessToken = token, RefreshToken = refreshToken.Token };
+
+            return refreshResponse;
+
+        }
     }
 }

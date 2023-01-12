@@ -46,5 +46,19 @@ namespace API.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, err.Message);
             }
         }
+        [HttpPost("Refresh")]
+        public async Task<ActionResult<LoginResponse>> Refresh([FromBody]string refresh)
+        {
+            try
+            {
+                var response = await _service.Refresh(refresh);
+
+                return response;
+            }
+            catch (Exception err)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, err.Message);
+            }
+        }
     }
 }

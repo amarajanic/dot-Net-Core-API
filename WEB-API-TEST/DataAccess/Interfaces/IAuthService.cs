@@ -11,5 +11,6 @@ namespace DataAccess.Interfaces
     {
         public Task<string> Register(UserRegister request);
         public Task<LoginResponse> Login(UserLogin request);
+        public Task<LoginResponse> Refresh(string refresh);
     }
 }
