@@ -85,7 +85,7 @@ namespace DataAccess.Services
             {
                 throw new Exception("Invalid refresh token!");
             }
-            if (userRefreshToken.TokenExpires >= DateTime.Now)
+            if (DateTime.Now >= userRefreshToken.TokenExpires)
             {
                 throw new Exception("Refresh token expired!");
             }

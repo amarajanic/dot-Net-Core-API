@@ -47,11 +47,11 @@ namespace API.Controllers
             }
         }
         [HttpPost("Refresh")]
-        public async Task<ActionResult<LoginResponse>> Refresh([FromBody]string refresh)
+        public async Task<ActionResult<LoginResponse>> Refresh([FromBody]DataAccess.Models.RefreshToken refresh)
         {
             try
             {
-                var response = await _service.Refresh(refresh);
+                var response = await _service.Refresh(refresh.Token);
 
                 return response;
             }
