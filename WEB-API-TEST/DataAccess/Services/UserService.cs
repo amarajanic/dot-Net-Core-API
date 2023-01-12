@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using DataAccess.DbModels;
+using MimeKit.Encodings;
 
 namespace DataAccess.Services
 {
@@ -26,16 +27,16 @@ namespace DataAccess.Services
 
         public async Task<List<UserDisplay>> GetAll(int skip = 0, int take = 100)
         {
-            var dbUsers = await  _context.Users.Include(x=>x.Role).Skip(skip).Take(take).ToListAsync();
+            var dbUsers = await  _context.Users.Include(x=>x.Role).Include(x=>x.Task).Skip(skip).Take(take).ToListAsync();
 
             var users = dbUsers.Select(x => new UserDisplay
             {
                 Id = x.Id,
                 FullName = x.FirstName + " " + x.LastName,
                 Role = new RoleDisplay() { Id = x.Role.Id, Name = x.Role.Name },
-                RoleId = x.RoleId
-                //Task = new TaskDisplay() { Id = x.Task.Id, Name = x.Task.Name, Description = x.Task.Description, UserId = x.Task.UserId },
-                //TaskId = x.Task.Id
+                RoleId = x.RoleId,
+                Task = x.Task != null ? new TaskDisplay() { Id = x.Task.Id, Name = x.Task.Name, Description = x.Task.Description, UserId = x.Task.UserId } : null,
+                TaskId = x.Task?.Id
             }).ToList();
 
 

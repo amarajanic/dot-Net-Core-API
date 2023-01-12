@@ -20,6 +20,6 @@ namespace DataAccess.DbModel
         public DateTime TokenExpires { get; set; }
         public DbRole Role { get; set; }
         public int RoleId { get; set; }
-        public DbTask Task { get; set; }
+        public DbTask? Task { get; set; }
     }
 }

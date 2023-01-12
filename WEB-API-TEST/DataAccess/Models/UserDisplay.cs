@@ -13,7 +13,7 @@ namespace DataAccess.Models
         public string FullName { get; set; }
         public RoleDisplay Role { get; set; }
         public int RoleId { get; set; }
-        //public TaskDisplay? Task { get; set; }
-        //public int? TaskId { get; set; }
+        public TaskDisplay? Task { get; set; }
+        public int? TaskId { get; set; }
     }
 }
