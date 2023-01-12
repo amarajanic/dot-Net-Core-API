@@ -24,11 +24,11 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserDisplay>> Get(int id)
+        public async Task<ActionResult<UserDisplay>> GetById(int id)
         {
             try
             {
-                return await _service.GetById(id);
+                return await _service.GetUserById(id);
             }
             catch (Exception)
             {
@@ -36,12 +36,12 @@ namespace API.Controllers
             }
 
         }
-        [HttpGet("{roleId:int}")]
-        public async Task<ActionResult<List<UserDisplay>>> GetByRoleId(int roleId)
+        [HttpGet("Role/{id}")]
+        public async Task<ActionResult<List<UserDisplay>>> GetByRoleId(int id)
         {
             try
             {
-                return await _service.GetUsersByRoleId(roleId);
+                return await _service.GetUsersByRoleId(id);
             }
             catch (Exception)
             {

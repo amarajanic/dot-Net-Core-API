@@ -12,7 +12,7 @@ namespace DataAccess.Interfaces
     public interface IUserService
     {
         public Task<List<UserDisplay>> GetAll(int skip, int take);
-        public Task<UserDisplay> GetById(int id);
+        public Task<UserDisplay> GetUserById(int id);
         public Task<List<UserDisplay>> GetUsersByRoleId(int roleId);
 
         public Task<UserInsert> InsertUser(UserInsert user);

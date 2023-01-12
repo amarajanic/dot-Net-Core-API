@@ -43,9 +43,9 @@ namespace DataAccess.Services
             return users;
         }
 
-        public async Task<UserDisplay> GetById(int id)
+        public async Task<UserDisplay> GetUserById(int id)
         {
-            var dbUser = await _context.Users.Where(x=> x.Id == id).FirstAsync();
+            var dbUser = await _context.Users.Where(x=> x.Id == id).Include(x=> x.Role).FirstAsync();
 
             var user = new UserDisplay()
             {
