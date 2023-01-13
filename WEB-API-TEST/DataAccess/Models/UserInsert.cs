@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    public class UserInsert
+    public class UserInsert : UserLogin
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

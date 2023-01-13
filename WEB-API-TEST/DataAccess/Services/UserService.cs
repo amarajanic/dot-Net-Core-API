@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DataAccess.DbModels;
 using MimeKit.Encodings;
+using DataAccess.Helpers;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace DataAccess.Services
 {
@@ -19,6 +21,8 @@ namespace DataAccess.Services
         private readonly TestDbContext _context;
 
         private readonly IMapper _mapper;
+
+        PasswordHelper passwordHelper = new PasswordHelper();
         public UserService(TestDbContext context, IMapper mapper)
         {
             _context = context;
@@ -60,11 +64,23 @@ namespace DataAccess.Services
         }
 
         public async Task<UserInsert> InsertUser(UserInsert user)
-        {     
-            var dbUser = _mapper.Map<DbUser>(user);
+        {
+            passwordHelper.CreatePasswordHash(user.Password, out byte[] passwordhash, out byte[] passwordSalt);
+            var dbUser = new DbUser()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Username = user.Username,
+                PasswordHash = passwordhash,
+                PasswordSalt = passwordSalt,
+                RoleId = user.RoleId
+            };
+            //var dbUser = _mapper.Map<DbUser>(user);
 
             await _context.AddAsync(dbUser);
             await _context.SaveChangesAsync();
+
+            user.Password = null; //temp solution for user display after insert, user password should not be returned
             return user;
         }
 
