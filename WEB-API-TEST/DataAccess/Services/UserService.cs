@@ -86,12 +86,18 @@ namespace DataAccess.Services
 
         public async Task<UserInsert> UpdateUser(UserInsert user, int id)
         {
-            var dbUser = await _context.Users.Where(x => x.Id == id).FirstAsync();
-
-            dbUser.FirstName = user.FirstName;
-            dbUser.LastName = user.LastName;
-            dbUser.RoleId = user.RoleId;
-
+            passwordHelper.CreatePasswordHash(user.Password, out byte[] passwordhash, out byte[] passwordSalt);
+            var dbUser = new DbUser()
+            {
+                Id = id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Username = user.Username,
+                PasswordHash = passwordhash,
+                PasswordSalt = passwordSalt,
+                RoleId = user.RoleId
+            };
+            
             _context.Update(dbUser);
             await _context.SaveChangesAsync();
             return user;        

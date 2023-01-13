@@ -52,10 +52,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(UserInsert user)
         {
-            var response = await _service.InsertUser(user);
-            return Ok(response);
-
-           /** try
+            try
             {
                 var response = await _service.InsertUser(user);
                 return Ok(response);
@@ -63,10 +60,7 @@ namespace API.Controllers
             catch (Exception err)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, err.Message);
-            **/
-            
-
-           
+            } 
         }
 
         [HttpPut("{id}")]
