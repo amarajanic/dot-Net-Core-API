@@ -103,16 +103,12 @@ namespace DataAccess.Services
             return user;        
         }
 
-        public async Task<UserInsert> DeleteUser(int id)
+        public async Task<string> DeleteUser(int id)
         {
             var dbUser = await _context.Users.Where(x => x.Id == id).FirstAsync();
             _context.Users.Remove(dbUser);
             await _context.SaveChangesAsync();
-            return new UserInsert { 
-                FirstName = dbUser.FirstName, 
-                LastName = dbUser.LastName, 
-                //Role = dbUser.Role
-                };
+            return $"User with Id: {dbUser.Id}, was deleted successfully!";
         }
 
         public async Task<List<UserDisplay>> GetUsersByRoleId(int roleId)
