@@ -17,6 +17,8 @@ namespace DataAccess.Interfaces
 
         public Task<UserInsert> InsertUser(UserInsert user);
         public Task<UserInsert> UpdateUser(UserInsert user, int id);
+        public Task<string> ChangePassword(UserChangePassword request, string email);
+
         public Task<string> DeleteUser(int id);
 
 

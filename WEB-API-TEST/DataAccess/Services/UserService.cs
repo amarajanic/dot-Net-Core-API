@@ -125,5 +125,25 @@ namespace DataAccess.Services
 
             return users;
         }
+
+        public async Task<string> ChangePassword(UserChangePassword request, string email)
+        {
+            var user = await _context.Users.Where(x => x.Username == email).FirstAsync();
+
+            bool isValidPassword = passwordHelper.VerifyPasswordHash(request.OldPassword, user.PasswordHash, user.PasswordSalt);
+
+            if (!isValidPassword)
+                return "Wrong current password!";
+
+            passwordHelper.CreatePasswordHash(request.NewPassword, out byte[] passwordhash, out byte[] passwordSalt);
+
+            user.PasswordHash = passwordhash;
+            user.PasswordSalt = passwordSalt;
+
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+
+            return "User password updated sucessfully!";
+        }
     }
 }

@@ -1,12 +1,16 @@
 ﻿using DataAccess.DbModel;
 using DataAccess.Interfaces;
 using DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -74,6 +78,24 @@ namespace API.Controllers
             catch (Exception)
             {
                 return NotFound("User not found!");
+            }
+        }
+
+        [HttpPatch("Change-Password")]
+        public async Task<IActionResult> Patch(UserChangePassword request)
+        {
+            try
+            {
+                if (request.NewPassword != request.RepeatPassword)
+                    return BadRequest("Passwords don't match!");
+
+                var email = HttpContext.User.FindFirst(ClaimTypes.Name).Value;
+                var response = await _service.ChangePassword(request, email);
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+                return NotFound("There was an error while changing your password!");
             }
         }
 
